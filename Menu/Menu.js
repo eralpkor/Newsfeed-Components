@@ -9,6 +9,29 @@ let menuItems = [
   'Log Out'
 ];
 
+// STRETCH GOAL solution with JQuery
+$(document).ready(function () {
+  function createMenu(arr) {
+    // create elements
+    const $menu = $('<div></div>').attr('id', 'MENU').addClass('menu').html('<ul></ul>')
+    $('.header').append($menu)
+
+    arr.forEach(function (text) {
+      $('.menu ul').append('<li>' + text + '</li>');
+    });
+
+    return $menu;
+  }
+
+  // prepend data to .header class
+  $('.header').prepend(createMenu(menuItems));
+
+  // create event listener on mutton and toggle class
+  $('.menu-button').click(function () {
+    $('.menu').toggleClass('menu--open');
+  });
+});
+
 /* 
 
   Step 1: Write a function that will create a menu component as seen below:
@@ -33,3 +56,41 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+// PURE JavaScript solution
+/*
+const menuButton = document.querySelector('.menu-button');
+const header = document.querySelector('.header');
+
+
+function createMenu(arr) {
+  // define new elements
+  const menu = document.createElement('div');
+  const UL = document.createElement('ul');
+
+  header.appendChild(menu);
+  
+
+  menu.classList.add('menu');
+
+  arr.forEach(text => {
+    let li = document.createElement('li');
+    li.textContent = text;
+    UL.appendChild(li);
+  });
+
+  
+  // $(menu).append(UL)
+  menu.appendChild(UL);
+
+  menuButton.addEventListener('click', function () {
+    menu.classList.toggle('menu--open');
+    
+  });
+  
+  return menu;
+}
+
+header.prepend(createMenu(menuItems));
+*/
+
