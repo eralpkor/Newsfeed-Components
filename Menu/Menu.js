@@ -9,6 +9,29 @@ let menuItems = [
   'Log Out'
 ];
 
+// STRETCH GOAL solution with JQuery
+$(document).ready(function () {
+  function createMenu(arr) {
+    // create elements
+    const $menu = $('<div></div>').attr('id', 'MENU').addClass('menu').html('<ul></ul>')
+    $('.header').append($menu)
+
+    arr.forEach(function (text) {
+      $('.menu ul').append('<li>' + text + '</li>');
+    });
+
+    return $menu;
+  }
+
+  // prepend data to .header class
+  $('.header').prepend(createMenu(menuItems));
+
+  // create event listener on mutton and toggle class
+  $('.menu-button').click(function () {
+    $('.menu').toggleClass('menu--open');
+  });
+});
+
 /* 
 
   Step 1: Write a function that will create a menu component as seen below:
@@ -33,6 +56,9 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+// PURE JavaScript solution
+/*
 const menuButton = document.querySelector('.menu-button');
 const header = document.querySelector('.header');
 
@@ -68,19 +94,6 @@ function createMenu(arr) {
   return menu;
 }
 
-
-// header.appendChild(createMenu(menuItems));
 header.prepend(createMenu(menuItems));
+*/
 
-
-
-
-
-
-
-
-
-
-$('.menu').click(function() {
-  console.log('Helloooo')
-})

@@ -153,8 +153,8 @@ function createComponent(params) {
   // const open = '\u25bc';
   const close = '\u25b2';
 
+  // add some text to the button
   expandButton.textContent = `${close} I am a button ${close}`;
-  // expandButton.textContent = open;
 
  // set text content
   title.innerText = params.title;
@@ -170,7 +170,6 @@ function createComponent(params) {
       article.classList.add('article-open');
     }
   });
-
 
   return article;
 }
