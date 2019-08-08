@@ -73,18 +73,15 @@ function createMenu(arr) {
 
   menu.classList.add('menu');
 
-  // arr.forEach(text => {
-  //   let li = document.createElement('li');
-  //   li.textContent = text;
-  //   UL.appendChild(li);
-  // });
-
-  arr.forEach(function(text) {
-    $(UL).append('<li>' + text + '</li>');
+  arr.forEach(text => {
+    let li = document.createElement('li');
+    li.textContent = text;
+    UL.appendChild(li);
   });
 
-  $(menu).append(UL)
-  // menu.appendChild(UL);
+  
+  // $(menu).append(UL)
+  menu.appendChild(UL);
 
   menuButton.addEventListener('click', function () {
     menu.classList.toggle('menu--open');
